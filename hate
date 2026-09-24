@@ -1,0 +1,9 @@
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local ByteNetReliable = ReplicatedStorage:WaitForChild("ByteNetReliable")
+
+task.spawn(function()
+    while true do
+        ByteNetReliable:FireServer(buffer.fromstring("\53"))
+        task.wait(0.01)
+    end
+end)
