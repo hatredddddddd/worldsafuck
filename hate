@@ -1,9 +1,27 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local ByteNetReliable = ReplicatedStorage:WaitForChild("ByteNetReliable")
 
-task.spawn(function()
-    while true do
-        ByteNetReliable:FireServer(buffer.fromstring("\53"))
-        task.wait(0.01)
+local KEY_H = 0x48 -- offset for "H"
+
+local running = false
+
+while true do
+    task.wait()
+
+    if isrbxactive() and iskeypressed(KEY_H) then
+        keyrelease(KEY_H)
+
+        running = not running
+
+        if running then
+            print("Started")
+        else
+            print("Stopped")
+        end
     end
-end)
+
+    if running then
+        ByteNetReliable:FireServer(buffer.fromstring("\53"))
+        task.wait(0.1)
+    end
+end
