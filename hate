@@ -22,6 +22,6 @@ while true do
 
     if running then
         ByteNetReliable:FireServer(buffer.fromstring("\53"))
-        task.wait(0.1)
+        task.wait(0.01)
     end
 end
