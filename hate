@@ -1,15 +1,15 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local ByteNetReliable = ReplicatedStorage:WaitForChild("ByteNetReliable")
 
-local KEY_H = 0x48 -- offset for "H"
+local KEY_X = 0x58 -- offset for "X"
 
 local running = false
 
 while true do
     task.wait()
 
-    if isrbxactive() and iskeypressed(KEY_H) then
-        keyrelease(KEY_H)
+    if isrbxactive() and iskeypressed(KEY_X) then
+        keyrelease(KEY_X)
 
         running = not running
 
