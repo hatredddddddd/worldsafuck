@@ -21,7 +21,7 @@ while true do
     end
 
     if running then
-        ByteNetReliable:FireServer(buffer.fromstring("\53"))
+        ByteNetReliable:FireServer(buffer.fromstring("\?"))
         task.wait(0.01)
     end
 end
